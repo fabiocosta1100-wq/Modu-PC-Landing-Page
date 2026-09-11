@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PCs à medida, upgrades e reparação técnica em Guimarães.">
+  <title>MODU PC — PCs à tua medida</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1020'/%3E%3Cpath d='M12 47V17l12 9 8-6 8 6 12-9v30H42V32l-10 8-10-8v15z' fill='%231d6cff'/%3E%3C/svg%3E">
+  <style>
+    :root { --ink:#090d16; --panel:#101724; --line:#253044; --white:#f7f9fc; --muted:#aeb9ca; --blue:#1d6cff; --blue-light:#77a7ff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--ink); color:var(--white); font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1120px,calc(100% - 40px)); margin:auto; }
+    header { position:sticky; top:0; z-index:3; backdrop-filter:blur(16px); background:rgba(9,13,22,.86); border-bottom:1px solid rgba(174,185,202,.13); }
+    nav { height:78px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { font-size:1.23rem; font-weight:900; letter-spacing:.08em; display:flex; align-items:center; gap:10px; }
+    .mark { width:31px; height:31px; display:grid; place-items:center; border:2px solid var(--blue); color:var(--blue-light); font-size:.78rem; transform:skewY(-10deg); }
+    .links { display:flex; gap:25px; color:var(--muted); font-size:.92rem; }
+    .links a:hover { color:var(--white); }
+    .button { display:inline-flex; justify-content:center; align-items:center; border-radius:8px; padding:13px 19px; background:var(--blue); color:#fff; font-weight:800; transition:.2s transform,.2s background; }
+    .button:hover { background:#397fff; transform:translateY(-2px); }
+    .button.ghost { background:transparent; border:1px solid var(--line); color:var(--white); }
+    .button.ghost:hover { border-color:var(--blue); }
+    .hero { min-height:650px; display:grid; align-items:center; padding:88px 0; position:relative; overflow:hidden; }
+    .hero:before { content:""; position:absolute; inset:0; background:linear-gradient(90deg,transparent 49%,rgba(29,108,255,.12) 50%,transparent 51%) 0 0/84px 84px,linear-gradient(rgba(29,108,255,.09) 1px,transparent 1px) 0 0/84px 84px; mask-image:linear-gradient(to bottom,black,transparent); pointer-events:none; }
+    .hero-grid { position:relative; display:grid; grid-template-columns:1.25fr .75fr; gap:48px; align-items:center; }
+    .eyebrow { color:var(--blue-light); font-weight:800; letter-spacing:.12em; font-size:.78rem; text-transform:uppercase; }
+    h1 { margin:16px 0 20px; max-width:720px; font-size:clamp(3rem,7vw,6.35rem); line-height:.96; letter-spacing:-.07em; }
+    h1 span { color:var(--blue); }
+    .hero p { max-width:555px; color:var(--muted); font-size:1.15rem; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:32px; }
+    .pc-card { aspect-ratio:1/1; border:1px solid var(--line); background:radial-gradient(circle at 70% 25%,rgba(29,108,255,.35),transparent 30%),linear-gradient(145deg,#162033,#0a0f1a 68%); border-radius:18px; padding:28px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:0 25px 70px rgba(0,0,0,.35); }
+    .pc-lines { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; align-items:end; height:65%; }
+    .pc-lines i { display:block; border:1px solid rgba(119,167,255,.5); background:linear-gradient(#24497f,#12233b); }
+    .pc-lines i:nth-child(1){height:45%}.pc-lines i:nth-child(2){height:81%}.pc-lines i:nth-child(3){height:66%}.pc-lines i:nth-child(4){height:100%}
+    .pc-card b { font-size:1rem; letter-spacing:.05em; }.pc-card small { color:var(--blue-light); }
+    section { padding:95px 0; border-top:1px solid rgba(174,185,202,.1); }
+    h2 { margin:0 0 15px; font-size:clamp(2rem,4vw,3.3rem); line-height:1.02; letter-spacing:-.055em; }
+    .intro { color:var(--muted); max-width:590px; font-size:1.05rem; margin:0 0 42px; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { background:var(--panel); border:1px solid var(--line); padding:26px; border-radius:12px; min-height:220px; }
+    .card .number { color:var(--blue); font-weight:900; font-size:.82rem; letter-spacing:.12em; }.card h3 { font-size:1.33rem; margin:34px 0 8px; }.card p { color:var(--muted); margin:0; }
+    .packages { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .package { position:relative; overflow:hidden; min-height:290px; padding:27px; border:1px solid var(--line); border-radius:12px; background:#0d1420; }
+    .package.featured { border-color:var(--blue); background:linear-gradient(150deg,#132b57,#0d1420 70%); }
+    .package .tag { display:inline-block; color:var(--blue-light); font-size:.76rem; font-weight:800; letter-spacing:.11em; text-transform:uppercase; }
+    .package h3 { margin:20px 0 7px; font-size:1.7rem; letter-spacing:-.04em; }.package .price { font-size:1.5rem; font-weight:900; color:var(--white); }.package p { color:var(--muted); margin:15px 0 0; }
+    .note { margin-top:22px; color:var(--muted); font-size:.92rem; }
+    .process { display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+    .step { padding:28px; background:#0d1420; min-height:188px; }.step + .step { border-left:1px solid var(--line); }.step strong { display:block; color:var(--blue); font-size:2rem; }.step h3 { margin:18px 0 5px; }.step p { color:var(--muted); margin:0; }
+    .contact { background:linear-gradient(135deg,#102650,#101724 65%); border-radius:18px; padding:clamp(30px,6vw,70px); display:flex; justify-content:space-between; align-items:end; gap:36px; border:1px solid rgba(119,167,255,.33); }
+    .contact h2 { max-width:600px; }.contact p { color:var(--muted); margin-bottom:0; }
+    footer { padding:28px 0 45px; color:var(--muted); font-size:.9rem; }.footer-row { display:flex; justify-content:space-between; gap:18px; }
+    @media (max-width:760px) { .links { display:none; } .hero { min-height:auto; padding:70px 0; }.hero-grid,.cards,.packages,.process { grid-template-columns:1fr; }.pc-card { max-width:420px; }.step + .step { border-left:0; border-top:1px solid var(--line); }.contact { display:block; }.contact .button { margin-top:25px; }.footer-row { display:block; }.footer-row span { display:block; margin-bottom:8px; } }
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><nav><a class="brand" href="#top"><span class="mark">M</span>MODU PC</a><div class="links"><a href="#servicos">Serviços</a><a href="#pcs">PCs MODU</a><a href="#processo">Como funciona</a><a href="#contacto">Contacto</a></div><a class="button" href="https://www.instagram.com/modu.pc/" target="_blank" rel="noreferrer">Pedir orçamento</a></nav></div></header>
+  <main id="top">
+    <section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">Guimarães · Portugal</div><h1>O teu PC.<br><span>À tua medida.</span></h1><p>Montagem de PCs, upgrades e reparação técnica com recomendações claras para o que realmente precisas.</p><div class="actions"><a class="button" href="https://www.instagram.com/modu.pc/" target="_blank" rel="noreferrer">Falar no Instagram</a><a class="button ghost" href="#servicos">Ver serviços</a></div></div><div class="pc-card" aria-hidden="true"><small>MODU // PERFORMANCE</small><div class="pc-lines"><i></i><i></i><i></i><i></i></div><b>CONSTRUÍDO PARA DURAR</b></div></div></section>
+    <section id="servicos"><div class="wrap"><div class="eyebrow">Serviços</div><h2>Mais desempenho.<br>Menos complicação.</h2><p class="intro">Escolhe a modalidade que faz mais sentido para ti. Explicamos as opções e definimos a melhor solução para o teu objetivo.</p><div class="cards"><article class="card"><div class="number">01</div><h3>PC à medida</h3><p>Diz-nos a finalidade e o orçamento. Escolhemos as peças que melhor se adequam ao teu PC.</p></article><article class="card"><div class="number">02</div><h3>Reparação e upgrades</h3><p>Diagnóstico, limpeza, reparação ou melhoria do equipamento que já tens.</p></article><article class="card"><div class="number">03</div><h3>PCs MODU</h3><p>Três gamas recomendadas para quem quer uma escolha simples, sem complicações.</p></article></div></div></section>
+    <section id="pcs"><div class="wrap"><div class="eyebrow">PCs MODU</div><h2>Escolhe a gama.<br>Nós tratamos do resto.</h2><p class="intro">Configurações base pensadas para diferentes orçamentos. As peças são escolhidas no momento para garantir o melhor valor possível.</p><div class="packages"><article class="package"><div class="tag">Gaming acessível</div><h3>MODU Start</h3><div class="price">500 €–600 €</div><p>Um PC gaming low cost, equilibrado para começar a jogar sem gastar mais do que precisas.</p></article><article class="package featured"><div class="tag">Melhor custo-benefício</div><h3>MODU Balance</h3><div class="price">800 €–900 €</div><p>A escolha recomendada para quem procura excelente desempenho pelo orçamento mais equilibrado.</p></article><article class="package"><div class="tag">Mais performance</div><h3>MODU Performance</h3><div class="price">1.100 €–1.200 €</div><p>Uma configuração mais forte, preparada para jogos exigentes e para evoluir ao longo do tempo.</p></article></div><p class="note">Valores indicativos para a torre. A configuração final depende da disponibilidade e do preço atual dos componentes.</p></div></section>
+    <section id="processo"><div class="wrap"><div class="eyebrow">Simples e direto</div><h2>Como funciona</h2><p class="intro">Sem pacotes confusos: começas com uma conversa e recebes uma proposta adequada.</p><div class="process"><article class="step"><strong>01</strong><h3>Envia mensagem</h3><p>Diz-nos o que precisas ou qual é o problema.</p></article><article class="step"><strong>02</strong><h3>Recebe orientação</h3><p>Analisamos as melhores opções para o teu objetivo.</p></article><article class="step"><strong>03</strong><h3>Avançamos</h3><p>Recebes uma proposta clara antes de qualquer trabalho.</p></article></div></div></section>
+    <section id="contacto"><div class="wrap"><div class="contact"><div><div class="eyebrow">Vamos falar</div><h2>Pronto para melhorar o teu PC?</h2><p>Envia uma mensagem no Instagram e conta-nos o que procuras.</p></div><a class="button" href="https://www.instagram.com/modu.pc/" target="_blank" rel="noreferrer">Enviar mensagem</a></div></div></section>
+  </main>
+  <footer><div class="wrap footer-row"><span>© 2026 MODU PC</span><span>PCs à medida · Guimarães</span></div></footer>
+</body>
+</html>
